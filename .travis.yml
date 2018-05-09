@@ -1,4 +1,4 @@
-anguage: node_js
+language: node_js
 node_js:
   - "9"
 before_script:
@@ -12,3 +12,6 @@ deploy:
   keep-history: true
   on:
     branch: master
+notifications:
+  email: false
+  slack: diginamic:nIQwPkWk2zfq2fjtzxMWhuBD#travis-callofdta
