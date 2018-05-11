@@ -1,0 +1,5 @@
+<div class="container">
+    <app-bandeau></app-bandeau>
+    <app-liste-collegues [listeCollegue]="collegue" (unVote) ="recupererVote($event)"></app-liste-collegues>
+    <app-historique-votes [votes] ="historiqueVote"></app-historique-votes>
+</div>

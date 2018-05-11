@@ -1,0 +1,4 @@
+<img src="{{unCollegue.photo}}" class="img-fluid" alt="Responsive image">
+<div>{{unCollegue.pseudo}}</div>
+<div>{{unCollegue.score}}</div>
+<app-avis (change)=traiterScore($event) [estAimer]="estAimer" [estDetestable]="estDetestable"></app-avis>
