@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Collegue, Avis, Vote } from '../model'
+import { CollegueService } from '../services/collegue.service';
 @Component({
   selector: 'app-collegue',
   templateUrl: './collegue.component.html',
@@ -11,13 +12,13 @@ export class CollegueComponent implements OnInit {
   @Output() unVote: EventEmitter<Vote> = new EventEmitter<Vote>();
   avis: Avis
 
-  estAimer:boolean;
-  estDetestable:boolean;
-  constructor() { }
+  estAimer: boolean;
+  estDetestable: boolean;
+  constructor(private _cService: CollegueService) { }
 
   ngOnInit() {
-    this.estAimer = (this.unCollegue.score >=1000)
-    this.estDetestable = (this.unCollegue.score <=-1000)
+    this.estAimer = (this.unCollegue.score >= 1000)
+    this.estDetestable = (this.unCollegue.score <= -1000)
   }
 
   traiter($event: Avis) {
@@ -25,12 +26,14 @@ export class CollegueComponent implements OnInit {
   }
 
   traiterScore($event: Avis) {
-    if ($event == Avis.AIMER)
-      this.unCollegue.score++;
-    else if ($event == Avis.DETESTER)
-      this.unCollegue.score--;
-
-    this.unVote.emit(new Vote($event, new Collegue(this.unCollegue.photo, this.unCollegue.pseudo, this.unCollegue.score)))
+    this._cService.donnerUnAvis(this.unCollegue, $event)
+      .then(c => {
+        this.unCollegue = c;
+        this.estAimer = (this.unCollegue.score >= 1000)
+        this.estDetestable = (this.unCollegue.score <= -1000)
+        this.unVote.emit(new Vote($event, new Collegue(this.unCollegue.photo, this.unCollegue.pseudo, this.unCollegue.score)))
+      })
+      .catch(err => console.log(err))
   }
 
 }

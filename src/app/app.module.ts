@@ -9,7 +9,8 @@ import { CollegueComponent } from './collegue/collegue.component';
 import { ListeColleguesComponent } from './liste-collegues/liste-collegues.component';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { AccueilComponent } from './accueil/accueil.component'
-
+import { HttpClientModule } from '@angular/common/http';
+import { CollegueService } from './services/collegue.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +20,13 @@ import { AccueilComponent } from './accueil/accueil.component'
     CollegueComponent,
     ListeColleguesComponent,
     HistoriqueVotesComponent,
-    AccueilComponent
+    AccueilComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CollegueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
