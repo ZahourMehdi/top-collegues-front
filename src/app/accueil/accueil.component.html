@@ -1,14 +1,12 @@
 <app-bandeau></app-bandeau>
-<div >
+<div>
   <div class="row">
     <div class="col-sm-8">
-        <app-liste-collegues [listeCollegue]="collegue" (unVote)="recupererVote($event)"></app-liste-collegues>
+      <app-liste-collegues [listeCollegue]="collegue" (unVote)="recupererVote($event)"></app-liste-collegues>
     </div>
     <div class="col-sm-4">
-        <app-historique-votes [votes]="historiqueVote"></app-historique-votes>
+      <app-historique-votes [votes]="historiqueVote"></app-historique-votes>
     </div>
-
   </div>
 
 </div>
-
