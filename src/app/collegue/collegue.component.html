@@ -1,5 +1,5 @@
 
 <img src="{{unCollegue.photo}}" class="img-fluid" alt="Responsive image">
-<div>Pseudo : <a routerLink='/collegues/{{unCollegue.pseudo}}'>{{unCollegue.pseudo}}</a></div>
-<div>Score : {{unCollegue.score}}</div>
+<div>Pseudo : <a routerLink='/collegues/{{unCollegue.pseudo}}'>{{unCollegue.pseudo  | uppercase}}</a></div>
+<div [innerHTML]="unCollegue.score | score"></div>
 <app-avis (change)=traiterScore($event) [estAimer]="estAimer" [estDetestable]="estDetestable"></app-avis>

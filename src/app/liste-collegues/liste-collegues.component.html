@@ -1,17 +1,19 @@
 <div class="text-center">
-  <div class="row card " >
-    <button class="btn-sm col-sm-2 offset-sm-1">Rafraichir la liste</button>
-  </div>
-  <div>
-    <table class="table-bordered card" >
-      <tbody>
-        <tr class="row ">
-          <td class="col-sm-6 card" *ngFor="let obj of listeCollegue">
-            <app-collegue [unCollegue]="obj" (unVote)=traiterVote($event)></app-collegue>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <nav class="navbar navbar-light bg-light">
+    <button class="btn btn-outline-primary">Rafraichir la liste</button>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" id="pseudo" #saisieInput (keyup)="saisiePseudo = saisieInput.value">
 
+      <span class="text-danger" >Rechercher {{saisiePseudo}}</span>
+    </form>
+  </nav>
+  <table class="table-bordered card">
+    <tbody>
+      <tr class="row ">
+        <td class="col-sm-6 card" *ngFor="let obj of listeCollegue | filtrer:saisiePseudo  ">
+          <app-collegue [unCollegue]="obj" (unVote)=traiterVote($event)></app-collegue>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

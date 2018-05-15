@@ -14,6 +14,8 @@ import { CollegueService } from './services/collegue.service';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
+import { ScorePipe } from './pipes/score.pipe';
+import { FiltrerPipe } from './pipes/filtrer.pipe';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent }, // /page1 affiche le composant A
@@ -37,6 +39,9 @@ const appRoutes: Routes = [
     AccueilComponent,
     MenuComponent,
     DetailCollegueComponent,
+    ScorePipe,
+    FiltrerPipe,
+
   ],
   imports: [
     BrowserModule,

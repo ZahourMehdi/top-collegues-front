@@ -9,6 +9,7 @@ import { Collegue, Vote } from '../model';
 export class ListeColleguesComponent implements OnInit {
 
   @Input() listeCollegue:Collegue[];
+  saisiePseudo:string = "";
   @Output()  unVote: EventEmitter<Vote> = new EventEmitter<Vote>();
   constructor() { }
 

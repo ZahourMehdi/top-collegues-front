@@ -3,12 +3,12 @@
 <div class="container text-center">
   <img src="{{collegue.photo}}" class="img-fluid" alt="Responsive image">
   <div>Pseudo :
-    <div>{{collegue.pseudo}}</div>
+    <div>{{collegue.pseudo | uppercase}}</div>
   </div>
   <table class="table">
     <tr>
       <td>Score :</td>
-      <td>{{collegue.score}}</td>
+      <td [innerHTML]="collegue.score | score"></td>
     </tr>
     <tr>
       <td>Nom :</td>
