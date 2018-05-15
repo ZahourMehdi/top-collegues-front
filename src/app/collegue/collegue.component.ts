@@ -31,6 +31,7 @@ export class CollegueComponent implements OnInit {
         this.unCollegue = c;
         this.estAimer = (this.unCollegue.score >= 1000)
         this.estDetestable = (this.unCollegue.score <= -1000)
+        this.unVote.emit(new Vote($event, new Collegue(this.unCollegue.photo, this.unCollegue.pseudo, this.unCollegue.score,this.unCollegue.nom, this.unCollegue.prenom, this.unCollegue.email, this.unCollegue.adresse)))
       })
       .catch(err => console.log(err))
   }
