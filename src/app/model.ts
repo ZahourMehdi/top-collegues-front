@@ -13,10 +13,12 @@ export class Collegue {
 }
 
 export class Vote {
-
-
-
   constructor(public avisDonne: Avis, public collegueJuge: Collegue) {
-
   }
+}
+
+export class AjoutCollegue{
+  matricule:string;
+  pseudo:string;
+  url:string;
 }
