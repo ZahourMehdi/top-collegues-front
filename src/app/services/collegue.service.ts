@@ -23,14 +23,19 @@ export class CollegueService {
 
 
   }
+  recupererCollegueByPseudo(pseudo: string): Promise<Collegue> {
+
+    return this._http.get<Collegue>(`${URL_BACKEND}/collegues/${pseudo}`)
+      .toPromise()
+  }
 
   donnerUnAvis(unCollegue: Collegue, avis: Avis): Promise<Collegue> {
     // TODO Aimer ou Détester un collègue côté serveur
     return this._http.patch<Collegue>(`${URL_BACKEND}collegues/${unCollegue.pseudo}`,
-    {
-      "action" : avis.valueOf()
-    })
-    .toPromise();
+      {
+        "action": avis.valueOf()
+      })
+      .toPromise();
   }
 
 }
