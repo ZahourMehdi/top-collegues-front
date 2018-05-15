@@ -6,12 +6,12 @@ import { Collegue } from '../model';
 })
 export class FiltrerPipe implements PipeTransform {
 
-  transform(value: Collegue[], args?: any): Collegue[] {
-    if (value == null || value == [] || args[0] == null){
+  transform(value: Collegue[], args: string): Collegue[] {
+    if (value == null || value == [] || args == null){
       return value;
     }
     return value.filter((collegue:Collegue) =>
-      collegue.pseudo.includes(args[0])
+      collegue.pseudo.includes(args)
     );
   }
 
