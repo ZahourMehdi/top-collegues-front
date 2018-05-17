@@ -17,11 +17,9 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit() {
     this.historiqueVote = [];
-    this._cService.listerCollegues()
-                  .then((listeCollegue:Collegue[]) =>{
+    this._cService.listerCollegues().subscribe((listeCollegue:Collegue[]) =>{
                     this.collegue = listeCollegue;
-                  })
-                  .catch(err => console.log(err))
+                  },err => console.log(err))
   }
   recupererVote($event){
     this.historiqueVote.push($event)

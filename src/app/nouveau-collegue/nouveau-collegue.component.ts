@@ -25,11 +25,9 @@ export class NouveauCollegueComponent implements OnInit {
   }
 
   submit() {
-    this._cService.ajouterCollegue(this.collegue)
-      .then((c: Collegue) => {
+    this._cService.ajouterCollegue(this.collegue).subscribe((c: Collegue) => {
 
-      })
-      .catch((err: HttpErrorResponse) => {
+      },(err: HttpErrorResponse) => {
 
         if (err.error == "Le matricule existe déjà !") {
           this.msgError.matricule = err.error;

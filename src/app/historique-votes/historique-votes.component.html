@@ -1,16 +1,16 @@
-<div >
+<div>
   <h2 class="text-center card">Historique</h2>
   <div class="row " *ngFor="let v of votes">
     <div class="col-sm-4">
-        <img src="{{v.collegueJuge.photo}}" width="80%"/>
+      <img src="{{v.collegueJuge.photo}}" width="80%" />
     </div>
     <div class="col-sm-8">
-        <div>  {{v.collegueJuge.pseudo}}</div>
-        <div  *ngIf="v.avisDonne==avis.AIMER; else elseBlock"> {{v.collegueJuge.pseudo}} est aimé(e), il à désormais un score de {{v.collegueJuge.score}}.</div>
-        <ng-template #elseBlock>{{v.collegueJuge.pseudo}} est détesté(e), il à désormais un score de {{v.collegueJuge.score}}.</ng-template>
-        <div><button (click)=supprimer(v) class="btn btn-link">Supprimer</button></div>
+      <div> {{v.collegueJuge.pseudo}}</div>
+      <div *ngIf="v.avisDonne==avis.AIMER; else elseBlock"> {{v.collegueJuge.pseudo}} est aimé(e), il à désormais un score de {{v.collegueJuge.score}}.</div>
+      <ng-template #elseBlock>{{v.collegueJuge.pseudo}} est détesté(e), il à désormais un score de {{v.collegueJuge.score}}.</ng-template>
+      <div>
+        <button (click)=supprimer(v) class="btn btn-link">Supprimer</button>
+      </div>
     </div>
-
-
   </div>
 </div>

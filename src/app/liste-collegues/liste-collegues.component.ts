@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Collegue, Vote } from '../model';
+import { CollegueService } from '../services/collegue.service';
 
 @Component({
   selector: 'app-liste-collegues',
@@ -8,15 +9,15 @@ import { Collegue, Vote } from '../model';
 })
 export class ListeColleguesComponent implements OnInit {
 
-  @Input() listeCollegue:Collegue[];
+   listeCollegue:Collegue[];
   saisiePseudo:string = "";
-  @Output()  unVote: EventEmitter<Vote> = new EventEmitter<Vote>();
-  constructor() { }
+  constructor(private _cService: CollegueService) { }
 
   ngOnInit() {
+    this._cService.listerCollegues().subscribe(
+      col => this.listeCollegue = col
+    )
   }
 
-  traiterVote($event:Vote){
-  this.unVote.emit($event);
-  }
+
 }

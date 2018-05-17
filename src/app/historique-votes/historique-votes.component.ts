@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Vote, Avis } from '../model';
+import { CollegueService } from '../services/collegue.service';
 
 @Component({
   selector: 'app-historique-votes',
@@ -8,11 +9,14 @@ import { Vote, Avis } from '../model';
 })
 export class HistoriqueVotesComponent implements OnInit {
 
-  @Input() votes:Vote[]
+  votes:Vote[] = []
   avis:any= Avis
-  constructor() { }
+  constructor(private _cService: CollegueService) { }
 
   ngOnInit() {
+    this._cService.historiqueV.subscribe((v:Vote) => {
+      this.votes.unshift(v);
+    }, err => console.log(err));
   }
 
   supprimer(v:Vote){
