@@ -10,7 +10,7 @@ import { Collegue, Avis, Vote } from '../model';
 })
 export class DetailCollegueComponent implements OnInit {
 
-  collegue:Collegue = new Collegue("","",0,"","","","");
+  collegue:Collegue = new Collegue("","","",0,"","","","");
   estAimer: boolean;
   estDetestable: boolean;
   constructor(private _route:ActivatedRoute, private _cService: CollegueService) {

@@ -5,7 +5,7 @@ export enum Avis {
 
 
 export class Collegue {
-  constructor(public photo: string, public pseudo: string, public score: number,
+  constructor(public matricule:string, public photo: string, public pseudo: string, public score: number,
     public nom: string, public prenom: string, public email: string, public adresse: string) {
   }
 
@@ -20,5 +20,5 @@ export class Vote {
 export class AjoutCollegue{
   matricule:string;
   pseudo:string;
-  url:string;
+  urlImage:string;
 }
